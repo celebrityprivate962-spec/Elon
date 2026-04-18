@@ -1,0 +1,496 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Meet Elon Musk – Exclusive One-on-One Experience</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #1a1a1a;
+            background-color: #fafafa;
+        }
+
+        /* Navigation */
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            z-index: 1000;
+            padding: 1rem 5%;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: #1a1a1a;
+            font-weight: 500;
+            transition: color 0.3s;
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        nav a:hover {
+            color: #d4af37;
+        }
+
+        /* Hero Section */
+        .hero {
+            margin-top: 60px;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: linear-gradient(135deg, #0a0a0a 0%, #1a1a1a 100%);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg width="100" height="100" xmlns="http://www.w3.org/2000/svg"><rect width="100" height="100" fill="none" stroke="%23d4af37" stroke-width="0.5" opacity="0.1"/></svg>');
+            opacity: 0.3;
+        }
+
+        .hero-content {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 4rem;
+            padding: 2rem;
+            max-width: 1200px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .hero-image {
+            flex: 1;
+            max-width: 500px;
+        }
+
+        .hero-image img {
+            width: 100%;
+            height: auto;
+            border-radius: 10px;
+            box-shadow: 0 20px 60px rgba(212, 175, 55, 0.2);
+            border: 3px solid #d4af37;
+        }
+
+        .hero-text {
+            flex: 1;
+            color: white;
+            text-align: left;
+        }
+
+        .hero-text h1 {
+            font-size: 3.5rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            line-height: 1.2;
+            background: linear-gradient(135deg, #ffffff 0%, #d4af37 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .tagline {
+            font-size: 1.5rem;
+            color: #d4af37;
+            font-weight: 300;
+            letter-spacing: 2px;
+            margin-bottom: 2rem;
+            text-transform: uppercase;
+        }
+
+        .hero-subtitle {
+            font-size: 1.1rem;
+            color: #b0b0b0;
+            line-height: 1.8;
+            margin-bottom: 2rem;
+        }
+
+        .cta-button {
+            display: inline-block;
+            padding: 1rem 2.5rem;
+            background: linear-gradient(135deg, #d4af37 0%, #f4d03f 100%);
+            color: #0a0a0a;
+            text-decoration: none;
+            font-weight: 600;
+            border-radius: 50px;
+            transition: all 0.3s;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            box-shadow: 0 10px 30px rgba(212, 175, 55, 0.3);
+        }
+
+        .cta-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 15px 40px rgba(212, 175, 55, 0.4);
+        }
+
+        /* About Section */
+        .about {
+            padding: 6rem 5%;
+            background: white;
+        }
+
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 2.5rem;
+            color: #1a1a1a;
+            margin-bottom: 3rem;
+            position: relative;
+            padding-bottom: 1rem;
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 3px;
+            background: #d4af37;
+        }
+
+        .about-content {
+            text-align: center;
+            font-size: 1.1rem;
+            line-height: 2;
+            color: #555;
+        }
+
+        .about-content p {
+            margin-bottom: 1.5rem;
+        }
+
+        .highlight {
+            color: #d4af37;
+            font-weight: 600;
+        }
+
+        /* How It Works Section */
+        .how-it-works {
+            padding: 6rem 5%;
+            background: #f5f5f5;
+        }
+
+        .steps {
+            display: flex;
+            justify-content: space-around;
+            gap: 2rem;
+            margin-top: 3rem;
+            flex-wrap: wrap;
+        }
+
+        .step {
+            flex: 1;
+            min-width: 250px;
+            max-width: 300px;
+            text-align: center;
+            padding: 2rem;
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.05);
+            transition: transform 0.3s;
+            position: relative;
+        }
+
+        .step:hover {
+            transform: translateY(-10px);
+        }
+
+        .step-number {
+            width: 60px;
+            height: 60px;
+            background: linear-gradient(135deg, #d4af37 0%, #f4d03f 100%);
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin: 0 auto 1.5rem;
+        }
+
+        .step h3 {
+            font-size: 1.3rem;
+            margin-bottom: 1rem;
+            color: #1a1a1a;
+        }
+
+        .step p {
+            color: #666;
+            line-height: 1.6;
+        }
+
+        /* CTA Section */
+        .cta-section {
+            padding: 6rem 5%;
+            background: linear-gradient(135deg, #1a1a1a 0%, #0a0a0a 100%);
+            text-align: center;
+            color: white;
+        }
+
+        .cta-section h2 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .cta-section p {
+            font-size: 1.2rem;
+            color: #b0b0b0;
+            margin-bottom: 2rem;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .cta-form {
+            max-width: 500px;
+            margin: 2rem auto;
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+
+        .cta-form input {
+            padding: 1rem 1.5rem;
+            border: 2px solid #333;
+            border-radius: 50px;
+            background: rgba(255,255,255,0.05);
+            color: white;
+            font-size: 1rem;
+            transition: border-color 0.3s;
+        }
+
+        .cta-form input:focus {
+            outline: none;
+            border-color: #d4af37;
+        }
+
+        .cta-form input::placeholder {
+            color: #666;
+        }
+
+        .submit-btn {
+            padding: 1rem 2.5rem;
+            background: linear-gradient(135deg, #d4af37 0%, #f4d03f 100%);
+            color: #0a0a0a;
+            border: none;
+            border-radius: 50px;
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .submit-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 30px rgba(212, 175, 55, 0.4);
+        }
+
+        /* Footer */
+        footer {
+            background: #0a0a0a;
+            color: #666;
+            text-align: center;
+            padding: 2rem;
+            font-size: 0.9rem;
+            border-top: 1px solid #222;
+        }
+
+        footer p {
+            font-style: italic;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .hero-content {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .hero-text h1 {
+                font-size: 2.5rem;
+            }
+
+            .tagline {
+                font-size: 1.2rem;
+            }
+
+            .hero-text {
+                text-align: center;
+            }
+
+            nav ul {
+                gap: 1rem;
+                font-size: 0.8rem;
+            }
+
+            .steps {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .step {
+                width: 100%;
+                max-width: 400px;
+            }
+        }
+
+        /* Smooth scroll */
+        html {
+            scroll-behavior: smooth;
+        }
+
+        /* Animation */
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .step, .hero-content, .about-content {
+            animation: fadeIn 0.8s ease-out;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Navigation -->
+    <nav>
+        <ul>
+            <li><a href="#home">Home</a></li>
+            <li><a href="#about">About</a></li>
+            <li><a href="#how-it-works">How It Works</a></li>
+            <li><a href="#contact">Reserve</a></li>
+        </ul>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+        <div class="hero-content">
+            <div class="hero-image">
+                <img src="elon.jpg" alt="Elon Musk">
+            </div>
+            <div class="hero-text">
+                <h1>Meet Elon Musk – One-on-One Experience</h1>
+                <p class="tagline">An Exclusive Opportunity</p>
+                <p class="hero-subtitle">
+                    Join an elite circle of innovators and visionaries for a private, 
+                    intimate conversation with one of the most influential minds of our time. 
+                    This is more than a meeting—it's a transformative experience.
+                </p>
+                <a href="#contact" class="cta-button">Secure Your Spot</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section class="about" id="about">
+        <div class="container">
+            <h2 class="section-title">The Experience</h2>
+            <div class="about-content">
+                <p>
+                    Elon Musk has revolutionized multiple industries—from electric vehicles and space exploration 
+                    to artificial intelligence and sustainable energy. Now, for the first time, you have the 
+                    <span class="highlight">exclusive opportunity</span> to engage in a private, one-on-one conversation 
+                    with the visionary behind Tesla, SpaceX, and X.
+                </p>
+                <p>
+                    This isn't a typical meet-and-greet. This is a <span class="highlight">personalized, intimate session</span> 
+                    designed for meaningful dialogue. Whether you're an entrepreneur, investor, or innovator, 
+                    this is your chance to discuss ideas, seek mentorship, or simply gain insights from someone 
+                    who's shaping the future of humanity.
+                </p>
+                <p>
+                    Limited to <span class="highlight">only a select few</span> each month, this experience offers 
+                    unparalleled access and the potential for life-changing connections.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- How It Works Section -->
+    <section class="how-it-works" id="how-it-works">
+        <div class="container">
+            <h2 class="section-title">How It Works</h2>
+            <div class="steps">
+                <div class="step">
+                    <div class="step-number">1</div>
+                    <h3>Book Your Spot</h3>
+                    <p>Submit your interest through our exclusive application. Each request is carefully reviewed to ensure alignment with the experience's vision.</p>
+                </div>
+                <div class="step">
+                    <div class="step-number">2</div>
+                    <h3>Schedule Your Session</h3>
+                    <p>Once approved, our team will coordinate a mutually convenient time for your private 60-minute session, tailored to your interests.</p>
+                </div>
+                <div class="step">
+                    <div class="step-number">3</div>
+                    <h3>Meet Elon</h3>
+                    <p>Engage in an intimate, one-on-one conversation in a private setting. This is your moment to connect, learn, and be inspired.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Call-to-Action Section -->
+    <section class="cta-section" id="contact">
+        <h2>Begin Your Journey</h2>
+        <p>Spaces are extremely limited. Express your interest today and take the first step toward an unforgettable experience.</p>
+        
+        <form class="cta-form" onsubmit="event.preventDefault(); alert('Thank you for your interest. Our team will contact you shortly.');">
+            <input type="text" placeholder="Full Name" required>
+            <input type="email" placeholder="Email Address" required>
+            <input type="tel" placeholder="Phone Number" required>
+            <input type="text" placeholder="Brief Introduction (Optional)">
+            <button type="submit" class="submit-btn">Request Invitation</button>
+        </form>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <p>Note: Contact the management team for further information</p>
+        <p style="margin-top: 0.5rem; font-size: 0.8rem;">&copy; 2026 Exclusive Events Management. All rights reserved.</p>
+    </footer>
+
+</body>
+  </html>
